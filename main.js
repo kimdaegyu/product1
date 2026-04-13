@@ -1,6 +1,17 @@
 
 const generateBtn = document.getElementById('generate');
 const numbersContainer = document.querySelector('.numbers');
+const themeToggle = document.getElementById('theme-toggle');
+
+// Theme Toggle Logic
+const currentTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', currentTheme);
+
+themeToggle.addEventListener('click', () => {
+    const targetTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', targetTheme);
+    localStorage.setItem('theme', targetTheme);
+});
 
 generateBtn.addEventListener('click', () => {
     generateAndDisplayNumbers();

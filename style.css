@@ -1,25 +1,65 @@
 
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --button-gradient: linear-gradient(145deg, #6a11cb, #2575fc);
+    --button-shadow: rgba(37, 117, 252, 0.4);
+    --ball-shadow: rgba(0, 0, 0, 0.2);
+    --container-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #f0f0f0;
+    --button-gradient: linear-gradient(145deg, #8e2de2, #4a00e0);
+    --button-shadow: rgba(142, 45, 226, 0.4);
+    --ball-shadow: rgba(0, 0, 0, 0.4);
+    --container-shadow: rgba(0, 0, 0, 0.3);
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    transition: background-color 0.3s ease;
 }
 
 .container {
+    position: relative;
     text-align: center;
-    background: #ffffff;
+    background: var(--container-bg);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 25px var(--container-shadow), 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
     margin-bottom: 30px;
-    color: #333;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .numbers {
@@ -40,7 +80,7 @@ h1 {
     font-size: 24px;
     font-weight: bold;
     color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -3px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px var(--ball-shadow), inset 0 -3px 5px rgba(0,0,0,0.3);
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -53,17 +93,17 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(145deg, #6a11cb, #2575fc);
+    background: var(--button-gradient);
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+    box-shadow: 0 5px 15px var(--button-shadow);
 }
 
 #generate:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 117, 252, 0.6);
+    box-shadow: 0 8px 25px var(--button-shadow);
 }
 
 #generate:active {
