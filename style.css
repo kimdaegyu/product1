@@ -110,6 +110,64 @@ h1 {
     transform: translateY(0);
 }
 
+.contact-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-container h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: var(--container-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6a11cb;
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: var(--button-gradient);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--button-shadow);
+}
+
+#submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--button-shadow);
+}
+
+body {
+    flex-direction: column;
+    padding: 20px;
+}
+
 /*
     Color legend:
     1-10: #fbc400 (Yellow)
